@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section name="预约管理">
+    <section>
+      <title>预约申请列表</title>
+      <url>http://www.qgj.cn/cldd/apply/getApplyList.ashx</url>
+    </section>
+    <section>
+      <title>取消预约列表</title>
+      <url>http://www.qgj.cn/cldd/apply/calApplyList.ashx</url>
+    </section>
+  </section>
+  <section name="车辆管理">
+    <section>
+      <title>添加车辆</title>
+      <url>http://www.qgj.cn/cldd/car/addCar.ashx</url>
+    </section>
+  </section>
+  <section name="司机管理">
+    <section>
+      <title>添加司机</title>
+      <url>http://www.qgj.cn/cldd/driver/addDriver.ashx</url>
+    </section>
+  </section>
+  <section name="报表" url="http://www.qgj.cn/cldd/apply/reqReport.ashx"></section>
+</config>

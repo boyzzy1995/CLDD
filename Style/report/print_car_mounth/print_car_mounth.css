@@ -1,0 +1,10 @@
+﻿body{
+ font-family:仿宋;
+ 
+}
+.printBtn{width:80px;height:30px;text-align:center;background:#fff;border:1px solid #000;}
+#report-table{margin-top:20px;}
+.table th,.table-one td{
+ width:100px;
+ padding:2px 0px;
+}

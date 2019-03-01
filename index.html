@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设计院车辆调度系统 beta v1.0</title>
+
+    <script language="javascript" type="text/javascript" src="Scripts/lib/prototype.js"></script>
+    <script language="javascript" type="text/javascript" src="http://115.236.68.206/zjriver/token.ashx"></script>
+</head>
+<body>
+    <script>
+	if(QGJToken.errcode!='0'){
+	window.location.href='http://115.236.68.206/zjriver/yzsoft/login/?ReturnUrl='+encodeURIComponent('http://webservices.qgj.cn/cldd/apply/index.ashx');
+}else{
+	var _async=new Xml();
+	_async.load('handlers/logasync.ashx?account='+QGJToken.data.uid);
+	window.location.href='http://webservices.qgj.cn/cldd/apply/index.ashx';
+}
+    </script>
+</body>
+</html>

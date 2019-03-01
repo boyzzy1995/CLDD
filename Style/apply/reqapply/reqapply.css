@@ -1,0 +1,256 @@
+﻿.top-words hr{
+  border-width: 3px;
+  background-color: black;
+  border-top:2px ridge;
+  width: 78%;
+  margin-top: 0px;
+  margin-bottom: 0px; 
+}
+.control-label{
+  font-size: 18px;
+}
+th{
+ text-align:center;
+ font-size:18px;
+ font-weight:bold;
+}
+td{
+ text-align:center;
+ font-size:16px;
+ font-weight:bold;
+ border-top: 1px solid #ddd;
+}
+.calendar{
+  display: block;
+  width: 78%;
+  height: 95%;
+  margin: 0 auto;
+}
+.calendar-body-box{
+ height: 80%;
+}
+.center-vertical {
+  position:relative;
+  top:50%;
+  transform:translateY(-50%);
+}
+.calendar .calendar-title-box{
+  position: relative;
+  width:100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+ .calendar .prev-month{
+  position: absolute;
+  top:25px;
+  left: 0px;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-left: 0px;
+    border-top: 6px solid transparent;
+    border-right: 8px solid #999;
+    border-bottom: 6px solid transparent;
+    cursor: pointer;
+}
+.calendar .next-month {
+    position: absolute;
+    top: 25px;
+  right: 0px;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-right: 0px;
+    border-top: 6px solid transparent;
+    border-left: 8px solid #999;
+    border-bottom: 6px solid transparent;
+    cursor: pointer;
+}
+.cover{
+  width:60%;
+  height:60%;
+  background-color:white;
+  filter:alpha(opacity=50);
+  display:none;
+  position:absolute;
+  z-index:1000;
+  top:20%;
+  left:20%;
+  border-radius:5px;
+  border:5px solid rgba(0,0,0, 0.4); 
+}
+.cover-words{
+  margin:0 auto;
+  width: 80%;
+  text-align: center;
+}
+.dataSpan{
+  font-weight: bold;
+  font-size: 18px;
+}
+.control-label{
+  margin-left:2%;
+}
+.hourSelect{
+  width: 50px;
+  height: 30px;
+  padding-left: 8px;
+}
+.hourSpan{
+  font-weight: bold;
+  font-size: 18px;
+}
+.minuteSelect{
+  width: 50px;
+  height: 30px;
+  padding-left: 8px;
+}
+.minuteSpan{
+  font-weight: bold;
+  font-size: 18px;
+}
+.calendar-table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align:center;
+}
+.calendar-table tr{
+    height: 30px;
+    line-height: 30px;
+}
+.currentDay{
+  background-color:#43CD80;
+  color:white;
+  border-left:1px solid #ddd;
+}
+.choseDay{
+  border: 2px solid #fb0;
+  background-color:#43CD80;
+  color:white;
+}
+.disabledDay{
+  background-color:gray;
+  color:white;
+  border-left:1px solid #ddd;
+}
+.currentMonth{
+ color: #999;
+}
+.otherMonth{
+  color: #ede;
+}
+.mask{
+  width: 20%;
+  height: 50%;
+  background-color: white;
+  filter: alpha(opacity=50);
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  top: 20%;
+  left: 37%;
+  border-radius: 5px;
+  border: 5px solid rgba(0,0,0, 0.4);
+}
+.mask-close{
+  margin:0 auto;
+  height:24px;
+  line-height:24px;
+  background:gray;
+  width:99.5%;
+  margin-top:2px;
+}
+.mask-close a{
+  color:#fff;
+  text-decoration:none;
+  float:right;
+  margin-right:10px;
+}
+.mask-content{
+  margin:0 auto;
+  width:74%;
+  margin-top:20px;
+}
+.wrap-cover{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: black;
+    z-index: 999;
+    position: absolute;
+}
+@media screen and (max-width: 500px) {
+  .mask-content{
+    margin:0 auto;
+    width:90%;
+    margin-top:20px;
+  }
+  .dataSpan{
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .mask{
+    width: 76%;
+    height: 60%;
+    background-color: white;
+    filter: alpha(opacity=50);
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 20%;
+    left: 12%;
+    border-radius: 5px;
+    border: 5px solid rgba(0,0,0, 0.4);
+  }
+  .control-label{
+    margin-left:0px;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+  .hourSelect{
+    width: 50px;
+    padding-left: 8px;
+    height:20px;
+  }
+  .hourSpan{
+    font-weight: normal;
+    font-size: 14px;
+  }
+  .minuteSelect{
+    width: 50px;
+    padding-left: 8px;
+    height:20px;
+  }
+  .minuteSpan{
+    font-weight: normal;
+    font-size: 14px;
+  }
+  .mask-content-button{
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+  }
+  .btn-div{
+    text-align: center;bottom: 10px;position: absolute;width: 100%;
+  }
+}
+.instruction{
+  width: 78%;
+  margin: 0 auto;
+}
+.green-div{
+  width: 10px;
+  height: 10px;
+  background-color: #43CD80;
+  display: inline-block;
+  float: left;
+}
+.instruction-words{
+  display: inline-block;
+  float: left;
+  margin: -4px 0 0 5px;
+  color: #999;
+}

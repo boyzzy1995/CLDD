@@ -1,0 +1,47 @@
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.mycontainer{
+	width: 100%;
+	height: 100%;
+	background-color: #2a3542;
+}
+.head-row{
+        width:100%;
+	height: 70px;
+	margin-left:-15px;
+	margin-right:-15px;
+	position: absolute;
+	z-index:5;
+        top:0;
+background-color:#2a3542;
+}
+.head-frame{
+	border: none;
+	width: 100%;
+	height: 70px;
+}
+.content-row{
+	margin-left:-15px;
+	margin-right:-15px;
+	position: absolute;
+	z-index:5;
+        top:70px;
+        width: 100%;
+        bottom:70px;
+}
+.content-frame{
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+.footer-row{
+	margin-left:-15px;
+	margin-right:-15px;
+	position: absolute;
+	bottom: 0px;
+	width:100%;
+	/*z-index:200;*/
+	height: 70px;
+}

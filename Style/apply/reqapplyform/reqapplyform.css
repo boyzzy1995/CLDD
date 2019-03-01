@@ -1,0 +1,133 @@
+.wrap-content{
+	width: 100%;
+	height: 100%;
+	background-color: #f6f6f6;
+}
+.mycont{
+	width: 96%;
+	height: 100%;
+	background-color: #f6f6f6;
+	margin:0 auto;
+}
+.mycol{
+	width: 94%;
+	height: 100%;
+	background-color: white;
+	margin:0 auto;
+	text-align: center;
+}
+.myform{
+	height: 100%
+	width:90%;
+	margin:0 auto;
+	text-align: center;
+}
+.myform .form-group{
+	width: 90%;
+	margin-left: 0;
+}
+.top-words{
+	width: auto;
+	margin:0 auto;
+	height: auto;
+}
+.top-words hr{
+	border-width: 3px;
+	background-color: black;
+	border-top:2px ridge;
+	width: 78%;
+	margin-top: 0px;
+	margin-bottom: 20px; 
+}
+.top-words b{
+	font-size: 1.2em;
+	color:black;
+}
+.words-div{
+	width: 27%;
+	padding:10px;
+}
+@media screen and (max-width: 500px) {
+	.words-div{
+		width: 50%;
+		padding:10px;
+	}
+}
+.bottom-btn{
+	width: 78%;
+	margin: 0 auto;
+	height: auto;
+}
+.bottom-btn-inside{
+	float: right;
+	width: auto;
+	height: auto;
+}
+.wrap-cover{
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: black;
+	z-index: 999;
+	position: absolute;
+}
+.cover{
+	width: 20%;
+	height: 20%;
+	background-color: white;
+	filter: alpha(opacity=50);
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	top: 38%;
+	left: 38%;
+	border-radius: 5px;
+	border: 5px solid rgba(0,0,0, 0.4);
+}
+.cover-words{
+	margin:0 auto;
+	width: 80%;
+	text-align: center;
+}
+.center-vertical {
+	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+}
+.mask{
+    width: 60%;
+    height: 20%;
+    background-color: white;
+    filter: alpha(opacity=50);
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 35%;
+    left: 20%;
+    border-radius: 5px;
+    border: 5px solid rgba(0,0,0, 0.4); 
+}
+.mask-close{
+    margin:0 auto;
+    height:24px;
+    line-height:24px;
+    background:gray;
+    width:99.5%;
+    margin-top:2px;
+}
+.mask-close a{
+    color:#fff;
+    text-decoration:none;
+    float:right;
+    margin-right:10px;
+}
+.mask-content{
+    margin:0 auto;
+    width:70%;
+    margin-top:20px;
+}
+.mask-content-button{
+    margin-top: 15px;
+    float: right;
+    margin-right: 16px;
+}

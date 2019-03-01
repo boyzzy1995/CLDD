@@ -1,0 +1,17 @@
+﻿.phone-index-table{
+	width:100%;
+	background-color: white;
+	margin:0 auto;
+}
+.phone-index-table th{
+	text-align: center;
+	font-size: 5px;
+}
+
+.phone-index-table td{
+	text-align: center;
+	font-size: 5px;
+}
+.top-words hr{
+  margin-bottom:0;
+}

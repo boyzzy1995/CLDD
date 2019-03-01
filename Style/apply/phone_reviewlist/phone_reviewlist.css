@@ -1,0 +1,29 @@
+.words-div{
+	margin:3% 3% 0 3%;
+}
+.words-div b{
+	margin: 0;
+	font-size: 15px;
+        color:black;
+}
+.words-div hr{
+	border-width: 3px;
+	background-color: black;
+	border-top:2px ridge;
+}
+.mytable{
+	width:94%;
+	margin-left: 3%;
+	margin-right: 3%;
+	background-color: white;
+}
+.mytable th{
+	text-align: center;
+        font-size:2px;
+        
+}
+.mytable td{
+	text-align: center;
+        font-size:2px;
+ 
+}

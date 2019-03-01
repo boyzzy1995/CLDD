@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="addDriver" title="增加司机">
+    <sql>insert into Driver_Information( DriverID , DriverName , DriverAccount , CarTelephone , LicenseID ) values( @DriverID , @DriverName , @DriverAccount , @CarTelephone , @LicenseID )</sql>
+  </section>
+  <section type="motifyDriver" title="修改司机">
+    <sql>update Driver_Information set DriverID=@DriverID , DriverName=@DriverName , DriverAccount=@DriverAccount , CarTelephone=@CarTelephone , LicenseID=@LicenseID where DriverID=@DriverID</sql>
+  </section>
+  <section type="delDriver" title="删除司机">
+    <sql>delete from Driver_Information where DriverID=@DriverID</sql>
+  </section>
+  <section type="getFreeDriver" title="未分配车辆司机">
+    <sql>select DriverName,DriverAccount from Driver_Information where LicenseID=''</sql>
+  </section>
+  <section type="getDriverList" title="司机列表">
+    <sql>select * from Driver_Information </sql>
+  </section>
+  <section type="getDriverDetail" title="司机详情">
+    <sql>select * from Driver_Information where DriverID=@DriverID </sql>
+  </section>
+  <section type="getByAccount" title="根据账号查找信息">
+    <sql>select * from Driver_Information where DriverAccount =@DriverAccount</sql>
+  </section>
+  <section type="upLicense" title="更新车牌">
+    <sql>update Driver_Information set LicenseID=@LicenseID where  DriverID =@DriverID</sql>
+  </section>
+  <section type="amend" title="修改司机信息"></section>
+</config>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="CarMounthReport" title="车辆每月报表">
+    <sql>select * from Car_Applied where LicenseID=@LicenseID and StartTime&gt;=@ThisMounth and StartTime &lt;=@NextMounth and AppliedStatue='已完成'</sql>
+  </section>
+ 
+</config>

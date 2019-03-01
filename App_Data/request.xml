@@ -1,0 +1,35 @@
+﻿<?xml version="1.0"?>
+<config>
+  <profile class="CLDD.Providers.ProfileProvider">
+    <request class="CLDD.Providers.ApplyResponse">
+      <url><![CDATA[^/apply/(\w+).ashx$]]></url>
+      <query>
+        <param name="guid" type="System.String"/>
+      </query>
+    </request>
+    <request class="CLDD.Providers.CarResponse">
+      <url><![CDATA[^/car/(\w+).ashx$]]></url>
+      <query>
+        <param name="guid" type="System.String"/>
+      </query>
+    </request>
+    <request class="CLDD.Providers.DriverResponse">
+      <url><![CDATA[^/driver/(\w+).ashx$]]></url>
+      <query>
+        <param name="guid" type="System.String"/>
+      </query>
+    </request>
+    <request class="CLDD.Providers.ReportResponse">
+      <url><![CDATA[^/report/(\w+).ashx$]]></url>
+      <query>
+        <param name="guid" type="System.String"/>
+      </query>
+    </request>
+    <request class="CLDD.Providers.DispatcherResponse">
+      <url><![CDATA[^/dispatcher/(\w+).ashx$]]></url>
+      <query>
+        <param name="guid" type="System.String"/>
+      </query>
+    </request>
+  </profile>
+</config>

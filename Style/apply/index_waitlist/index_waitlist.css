@@ -1,0 +1,12 @@
+﻿.changeCarBtn{
+    top: 20px;
+    position: absolute;
+    left: 89%;
+    width: 84px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	vertical-align: middle;
+}
+p{
+	margin: 0 0 0 0px;
+}

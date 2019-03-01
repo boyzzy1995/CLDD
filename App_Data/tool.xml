@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="getDepartLeader" title="获取部门领导账号">
+    <sql>select DepartLeaderAccount from DepartLeader where DepartID=@DepartID</sql>
+  </section>
+  <section type="getSysAccount" title="查找调度员账号">
+    <sql>select PermitAccount from CLDDPermit where ResourceID='SYSTEM'</sql>
+  </section>
+</config>

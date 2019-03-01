@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>设计院车辆调度系统 beta v1.0</title>
+<script language="javascript" type="text/javascript" src="http://profile.qgj.cn/profilejs.axd"></script>
+<script language="javascript" type="text/javascript" src="/cldd/Scripts/lib/prototype.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+</div>
+
+<script language="javascript" type="text/javascript">
+var _profile=new QGJPROFILE();
+if(_profile.uid==null){
+window.location.href='http://profile.qgj.cn/index.shtml?uri='+encodeURIComponent('http://webservices.qgj.cn/cldd/');
+}else{
+var _async=new Xml();
+_async.load('/cldd/handlers/logasync.ashx?account='+_profile.uid);
+window.location.href = 'http://webservices.qgj.cn/cldd/apply/index.ashx';
+}
+</script>
+
+</body>
+</html>

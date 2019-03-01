@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="addLsDispather" title="增加临时调度员">
+    <sql>insert into CLDDPermit(ResourceID,ResourcePermit, ResourcePermitLev , PermitAccount) values(@ResourceID,@ResourcePermit, @ResourcePermitLev , @PermitAccount)</sql>
+  </section>
+  <section type="getLsDispather" title="获取临时调度员账号">
+    <sql>select PermitAccount from CLDDPermit where ResourceID=@ResourceID</sql>
+  </section>
+  <section type="delLsDispather" title="删除临时调度员账号">
+    <sql>delete from CLDDPermit where ResourceID=@ResourceID</sql>
+  </section>
+</config>

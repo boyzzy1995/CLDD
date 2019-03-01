@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="getDriver" title="判断是否为司机">
+    <sql>SELECT Player FROM Driver_Information WHERE DriverAccount=@DriverAccount</sql>
+  </section>
+  <section type="getPermit" title="获取权限">
+    <sql>SELECT ResourcePermit FROM CLDDPermit WHERE PermitAccount=@PermitAccount</sql>
+  </section>
+</config>

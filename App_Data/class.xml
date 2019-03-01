@@ -1,0 +1,6 @@
+﻿<?xml version="1.0"?>
+<config>
+	<assembly name="CS.Provider">
+		<class name="CS.Providers.ProfileProvider"/>
+	</assembly>
+</config>

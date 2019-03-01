@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="getListA" title="申请人获取预约申请列表">
+    <sql>select * from Car_Applied where (AppliedStatue !='拒绝' and AppliedStatue!='取消' and AppliedStatue!='已完成' and AppliedStatue !='待处理' ) and  CarAppliedAccount=@CarAppliedAccount</sql>
+  </section>
+  <section type="getListD" title="司机获取预约申请列表">
+    <sql>select * from Car_Applied where (AppliedStatue !='拒绝' and AppliedStatue!='取消' and AppliedStatue!='已完成' and AppliedStatue !='待处理') and COAccount=@COAccount</sql>
+  </section>
+  <section type="getApply" title="查找某一申请信息">
+    <sql>select * from Car_Applied where CarAppliedID=@CarAppliedID </sql>
+  </section>
+  <section type="getApplyReviewList" title="待处理记录">
+    <sql>select  * from Car_Applied where AppliedStatue='待处理' order by ApplyDate desc </sql>
+  </section>
+  <section type="getApplyWaitList" title="待出车记录">
+    <sql>select * from Car_Applied where AppliedStatue='待出车' or AppliedStatue='开始' order by StartTime asc</sql>
+  </section>
+  <section type="getDayCar" title="查找某车某日是否有记录">
+	<!--<sql>select CarAppliedID from Car_Applied where  (AppliedStatue!='拒绝' and AppliedStatue!='取消' and AppliedStatue!='已完成')   and LicenseID=@LicenseID and starttime&lt;=@starttime and endtime&gt;=@starttime </sql>-->
+    <sql>select CarAppliedID from Car_Applied where  (AppliedStatue!='拒绝' and AppliedStatue!='取消' )   and LicenseID=@LicenseID and starttime&lt;=@starttime and endtime&gt;=@starttime </sql>
+  </section>
+  <section type="addApply" title="预约车辆">
+    <sql>insert into Car_Applied(CarAppliedID,CarAppliedName,CarAppliedAccount,AppliedTel,ApplyDate,StartTime,Days,EndTime,Destination,TripNum,TripMembers,ApplieReson,AppliedStatue) values(@CarAppliedID,@CarAppliedName,@CarAppliedAccount,@AppliedTel,@ApplyDate,@StartTime,@Days,@EndTime,@Destination,@TripNum,@TripMembers,@ApplieReson,@AppliedStatue)</sql>
+  </section>
+  <section type="sendDriver" title="派遣车辆">
+    <sql>update Car_Applied set LicenseID=@LicenseID,CarOwner=@CarOwner,COAccount=@COAccount,CarTelephone=@CarTelephone  where CarAppliedID=@CarAppliedID</sql>
+  </section>
+  <section type="upApplyStatue" title="改变预约状态">
+    <sql>update Car_Applied set AppliedStatue=@AppliedStatue where CarAppliedID=@CarAppliedID</sql>
+  </section>
+  <section type="upStauteRefuse" title="拒绝预约">
+    <sql>update Car_Applied set AppliedStatue=@AppliedStatue,RefuseReson=@RefuseReson where CarAppliedID=@CarAppliedID</sql>
+  </section>
+  <section type="delayApply" title="延期返回">
+    <sql>update Car_Applied set Days=@Days,EndTime=@EndTime where CarAppliedID=@CarAppliedID</sql>
+  </section>
+  <section type="delayClashApply" title="查找延期冲突的记录">
+    <sql>select  * from Car_Applied where (AppliedStatue='待处理' or AppliedStatue='待出车')   and LicenseID=@LicenseID and StartTime&lt;=@StartTime and EndTime &gt;=@StartTime</sql>
+  </section>
+  <section type="getListByLicenseID" title="根据车牌查找所有对应的记录">
+    <sql>select * from Car_Applied where  (AppliedStatue='待处理' or AppliedStatue='待出车')   and LicenseID=@LicenseID order by ApplyDate asc</sql>
+  </section>
+  <section type="endInAdvance" title="结束行程，更改结束时间">
+    <sql>update Car_Applied set Days=@Days,EndTime=@EndTime where CarAppliedID=@CarAppliedID</sql>
+  </section>
+</config>

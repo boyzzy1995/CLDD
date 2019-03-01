@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified">
+      <s:element name="SendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTextMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTextMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendTextMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="debug">
+        <s:complexType />
+      </s:element>
+      <s:element name="debugResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="debugResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMessageSoapIn">
+    <wsdl:part name="parameters" element="SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapOut">
+    <wsdl:part name="parameters" element="SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageSoapIn">
+    <wsdl:part name="parameters" element="SendTextMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageSoapOut">
+    <wsdl:part name="parameters" element="SendTextMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="debugSoapIn">
+    <wsdl:part name="parameters" element="debug" />
+  </wsdl:message>
+  <wsdl:message name="debugSoapOut">
+    <wsdl:part name="parameters" element="debugResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageHttpGetOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageHttpGetOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:message name="debugHttpGetIn" />
+  <wsdl:message name="debugHttpGetOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageHttpPostOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageHttpPostOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:message name="debugHttpPostIn" />
+  <wsdl:message name="debugHttpPostOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:portType name="dingtalkSoap">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="SendMessageSoapIn" />
+      <wsdl:output message="SendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <wsdl:input message="SendTextMessageSoapIn" />
+      <wsdl:output message="SendTextMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <wsdl:input message="debugSoapIn" />
+      <wsdl:output message="debugSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="dingtalkHttpGet">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="SendMessageHttpGetIn" />
+      <wsdl:output message="SendMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <wsdl:input message="SendTextMessageHttpGetIn" />
+      <wsdl:output message="SendTextMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <wsdl:input message="debugHttpGetIn" />
+      <wsdl:output message="debugHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="dingtalkHttpPost">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="SendMessageHttpPostIn" />
+      <wsdl:output message="SendMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <wsdl:input message="SendTextMessageHttpPostIn" />
+      <wsdl:output message="SendTextMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <wsdl:input message="debugHttpPostIn" />
+      <wsdl:output message="debugHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dingtalkSoap" type="dingtalkSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <soap:operation soapAction="/SendTextMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <soap:operation soapAction="/debug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="dingtalkSoap12" type="dingtalkSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <soap12:operation soapAction="/SendTextMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <soap12:operation soapAction="/debug" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="dingtalkHttpGet" type="dingtalkHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendMessage">
+      <http:operation location="/SendMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <http:operation location="/SendTextMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <http:operation location="/debug" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="dingtalkHttpPost" type="dingtalkHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendMessage">
+      <http:operation location="/SendMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <http:operation location="/SendTextMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="debug">
+      <http:operation location="/debug" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="dingtalk">
+    <wsdl:port name="dingtalkSoap" binding="dingtalkSoap">
+      <soap:address location="http://115.236.68.206/dingtalk/dingtalk.asmx" />
+    </wsdl:port>
+    <wsdl:port name="dingtalkSoap12" binding="dingtalkSoap12">
+      <soap12:address location="http://115.236.68.206/dingtalk/dingtalk.asmx" />
+    </wsdl:port>
+    <wsdl:port name="dingtalkHttpGet" binding="dingtalkHttpGet">
+      <http:address location="http://115.236.68.206/dingtalk/dingtalk.asmx" />
+    </wsdl:port>
+    <wsdl:port name="dingtalkHttpPost" binding="dingtalkHttpPost">
+      <http:address location="http://115.236.68.206/dingtalk/dingtalk.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <section type="getKm" title="获取总公里数">
+    <sql>select Kilometers from Car_Infomation where DriverAccount=@DriverAccount</sql>
+  </section>
+  <section type="getKmByLicense" title="获取总公里数-车牌">
+    <sql>select Kilometers from Car_Infomation where LicenseID=@LicenseID</sql>
+  </section>
+  <section type="upKm" title="更新总公里数">
+    <sql>update Car_Infomation set Kilometers=@Kilometers where DriverAccount=@DriverAccount</sql>
+  </section>
+  <section type="getCarStatue" title="获取车辆当前状态">
+    <sql>select CarStatue from Car_Infomation where LicenseID=@LicenseID</sql>
+  </section>
+  <section type="getSingleCarAndCarTel" title="带司机电话的车辆详情">
+    <sql>select  c.Guid, c.LicenseID,d.DriverName,d.DriverAccount,d.CarTelephone from Car_infomation c join Driver_Information d on c.DriverAccount = d.DriverAccount where c.Guid=@Guid</sql>
+  </section>
+  <section type="getUseCars" title="获取所有可用车辆和司机信息">
+    <sql>select c.signid, c.Guid, c.LicenseID,c.Sites,c.CarStatue,d.DriverName,d.DriverAccount,d.CarTelephone from Car_infomation c join Driver_Information d on c.DriverAccount = d.DriverAccount where c.CarStatue='空闲' or c.CarStatue='出车' order by c.signid asc</sql>
+  </section>
+  <section type="getCarList" title="获取所有车辆">
+    <sql>select * from Car_infomation</sql>
+  </section>
+  <section type="getCarUnallocated" title="获取所有未分配车辆">
+    <sql>select LicenseID from Car_infomation where CarStatue='未分配'</sql>
+  </section>
+  <section type="getLicenseIDList" title="获取所有可用车辆车牌">
+    <sql>select LicenseID from Car_infomation where CarStatue!='未分配' and CarStatue!='禁用'</sql>
+  </section>
+  <section type="getSingleCar" title="获取单个车辆">
+    <sql>select * from Car_infomation where Guid=@Guid</sql>
+  </section>
+  <section type="motifyCar" title="修改车辆">
+    <sql>update  Car_Infomation set LicenseID=@LicenseID , DriverAccount=@DriverAccount , Sites= @Sites , MOT=@MOT , Insurance=@Insurance , Kilometers=@Kilometers where Guid=@Guid</sql>
+  </section>
+  <section type="addCar" title="增加车辆">
+    <sql>insert into Car_Infomation(Guid,LicenseID, Sites , MOT , Insurance , Kilometers , CarStatue) values(@Guid,@LicenseID, @Sites , @MOT , @Insurance , @Kilometers , @CarStatue)</sql>
+  </section>
+  <section type="upCarStatue" title="更新车辆状态--guid">
+    <sql>update Car_Infomation set CarStatue=@CarStatue where Guid=@Guid</sql>
+  </section>
+  <section type="upCarStatueByLicenseID" title="更新车辆状态--licenseid">
+    <sql>update Car_Infomation set CarStatue=@CarStatue where LicenseID=@LicenseID</sql>
+  </section>
+  <section type="unBound" title="解除车辆与司机绑定">
+    <sql>update Car_Infomation set DriverAccount='',DriverName='',CarStatue='未分配' where LicenseID=@LicenseID</sql>
+  </section>
+  <section type="Bound" title="车辆与司机绑定">
+    <sql>update Car_Infomation set DriverAccount=@DriverAccount,DriverName=@DriverName,CarStatue='空闲' where LicenseID=@LicenseID</sql>
+  </section>
+  <section type="upControlCarNum" title="更新调度员控制的车的数量">
+    <sql>update CLDD_Set set SetValue=@SetValue where SetType='ControlCarNum'</sql>
+  </section>
+  <section type="getControlCarNum" title="获取需要调度员控制的车的数量">
+    <sql>select SetValue from CLDD_Set where SetType='ControlCarNum'</sql>
+  </section>
+  <section type="getEnableCarLicense" title="获取所有车辆状态为出行、维修、空闲的车辆的车牌">
+    <sql>select LicenseID from Car_infomation where carstatue='出车' or carstatue='维修'or carstatue='空闲'</sql>
+  </section>
+  <section type="getCarStateByLicenseIDAndDay" title="查询某车牌的车辆在某天的车辆状态">
+    <sql>select top 1 NewCarState,licenseID,changedatetime from StateChangeRecords where licenseID = @LicenseID and changedatetime &lt; @ChangeDateTime and changedatetime &gt;= (CONVERT(nvarchar(50), (select top 1 changedatetime from StateChangeRecords where licenseID=@LicenseID and changedatetime &lt; @ChangeDateTime order by changedatetime desc), 23)) order by ( case when @ChangeDateTime=DATEADD(day,1,(CONVERT(nvarchar(50),(select top 1 changedatetime from StateChangeRecords where licenseID=@LicenseID and changedatetime &lt; @ChangeDateTime order by changedatetime desc), 23))) and NewCarState='维修' then '1' when @ChangeDateTime=DATEADD(day,1,(CONVERT(nvarchar(50),(select top 1 changedatetime from StateChangeRecords where licenseID=@LicenseID and changedatetime &lt; @ChangeDateTime order by changedatetime desc), 23))) and NewCarState='出车' then '2' when @ChangeDateTime=DATEADD(day,1,(CONVERT(nvarchar(50),(select top 1 changedatetime from StateChangeRecords where licenseID=@LicenseID and changedatetime &lt; @ChangeDateTime order by changedatetime desc), 23))) and NewCarState='空闲' then '3' end) asc,changedatetime desc</sql>
+  </section>
+  <section type="insertChangeState" title="插入更改状态表记录">
+    <sql>insert into StateChangeRecords(Guid,LicenseID,NewCarState,ChangeDatetime) values(@Guid,@LicenseID,@NewCarState,@ChangeDatetime)</sql>
+  </section>
+  <section type="getFixdList" title="查询当前维修列表">
+    <sql>select * from CLDD_Fixed_Car where statue='未开始' or statue='开始' order by StartTime asc</sql>
+  </section>
+  <section type="cancelFixedStatue" title="取消维修">
+    <sql>update  CLDD_Fixed_Car set statue='取消' where FixID=@FixID </sql>
+  </section>
+  <section type="endFixedStatue" title="结束维修">
+    <sql>update  CLDD_Fixed_Car set statue='已完成',EndTime=@EndTime  where FixID=@FixID </sql>
+  </section>
+  <section type="addFixed" title="添加维修记录">
+    <sql>insert into CLDD_Fixed_Car(FixID,LicenseID,StartTime,EndTime,statue) values(@FixID,@LicenseID,@StartTime,@EndTime,@statue) </sql>
+  </section>
+  <section type="getDayFixedByLicense" title="查询某车某天是否有维修记录">
+    <sql>select * from CLDD_Fixed_Car where LicenseID=@LicenseID and (statue='未开始' or statue='开始') and ( StartTime&lt;=@StartTime and EndTime &gt;=@StartTime)</sql>
+  </section>
+  <section type="editFixed" title="修改维修时间">
+    <sql>update  CLDD_Fixed_Car set StartTime=@StartTime,EndTime=@EndTime where FixID=@FixID</sql>
+  </section>
+  <section type="getSingleCarByLicenseID" title="根据车牌获取带司机电话的车辆详情">
+    <sql>select  c.Guid, c.LicenseID,d.DriverName,d.DriverAccount,d.CarTelephone from Car_infomation c join Driver_Information d on c.DriverAccount = d.DriverAccount where c.LicenseID=@LicenseID</sql>
+  </section>
+</config>

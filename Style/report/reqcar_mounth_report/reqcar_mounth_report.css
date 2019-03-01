@@ -1,0 +1,71 @@
+﻿.words-div-report{
+	width: 94%;
+	margin:10px auto 0 auto;
+}
+.words-div-report b{
+	margin: 0;
+	font-size: 20px;
+}
+.words-div-report hr{
+	border-width: 3px;
+	background-color: black;
+	border-top:2px ridge;
+}
+.wrap-words{
+	margin-right: 3%;
+	margin-left:3%;
+	width: 94%;
+	height: 80%;
+	background-color: white;
+}
+.wrap-content-words{
+	width: 80%;
+	padding: 3% 6%;
+	margin: 0 auto;
+}
+.wrap-content-words b{
+	font-size: 1em;
+	font-family:微软雅黑;
+	margin: 1%;
+}
+.button-sq{
+	float: right;
+	width: auto;
+	height: 35px;
+	margin-right: 10%;
+}
+.reportTable{
+width:auto;
+height:auto;
+}
+.inputAccount{
+  width: 200px;
+}
+.dispatcherSpan{
+	float:right;
+	margin-top: 6px;
+}
+@media only screen and (max-width: 500px) {
+	span{
+		font-size: 10px;
+	}
+	.words-div-report{
+	display: none;
+}
+.inputAccount{
+  width: auto;
+}
+.dispatcherSpan{
+	float:none;
+	margin-top: 6px;
+}
+.wrap-content-words{
+	width: 100%;
+	padding: 3% 6%;
+	margin: 0 auto;
+
+}
+.wrap-words{
+	margin-top: 50%;
+}
+}

@@ -1,0 +1,55 @@
+﻿.lil{
+    float: left;
+    width: 20%;
+    height: 300px;
+    margin: 2%
+}
+.Ttable{
+    margin-right: 3%;
+    margin-left:3%;
+    width: 94%;
+    /* height: 88%; */
+    /* height: 100%; */
+    background-color: white;
+}
+.Tpanel{
+    width: 80%;
+    height: 100%;
+    border-top: double;
+    border-bottom: double;
+    text-align: center;
+}
+.Tpanel-select{
+  display: none;
+}
+.ul{
+    width: 100%;
+    /* height: 85%; */
+    /* height: 100%; */
+    margin-left: 4%;
+    margin-right: 3%;
+}
+.ul li{
+    list-style: none;
+}
+.top-words-carlist{
+    margin:1% 3% 0 3%;
+}
+.top-words-carlist b{
+    font-size: 1.1em;
+    color:black;
+}
+.top-words-carlist hr{
+    background-color: black;
+    border-top:2px ridge;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.tb{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.col-sm-6{
+ text-align:left;
+}
